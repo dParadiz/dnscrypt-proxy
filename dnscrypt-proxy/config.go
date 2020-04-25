@@ -67,6 +67,7 @@ type Config struct {
 	BlockIP                  BlockIPConfig               `toml:"blocked_ips"`
 	BlockIPLegacy            BlockIPConfigLegacy         `toml:"ip_blacklist"`
 	ForwardFile              string                      `toml:"forwarding_rules"`
+	CustomENDSOptionsFile    string                      `toml:"custom_ends_options"`
 	CloakFile                string                      `toml:"cloaking_rules"`
 	CaptivePortalFile        string                      `toml:"captive_portal_handler"`
 	StaticsConfig            map[string]StaticConfig     `toml:"static"`
@@ -547,6 +548,7 @@ func ConfigLoad(proxy *Proxy, flags *ConfigFlags) error {
 	proxy.blockIPLogFile = config.BlockIP.LogFile
 
 	proxy.forwardFile = config.ForwardFile
+	proxy.customEdnsOptionsFile = config.CustomENDSOptionsFile
 	proxy.cloakFile = config.CloakFile
 	proxy.captivePortalFile = config.CaptivePortalFile
 
