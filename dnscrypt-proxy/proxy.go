@@ -245,11 +245,12 @@ func (proxy *Proxy) StartProxy() {
 	}
 	if liveServers > 0 {
 		dlog.Noticef("dnscrypt-proxy is ready - live servers: %d", liveServers)
+		/* not used on ios
 		if !proxy.child {
 			if err := ServiceManagerReadyNotify(); err != nil {
 				dlog.Fatal(err)
 			}
-		}
+		}*/
 
 		if !proxy.readyFired {
 			proxy.readyFired = true

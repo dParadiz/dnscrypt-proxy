@@ -640,9 +640,10 @@ func ConfigLoad(proxy *Proxy, flags *ConfigFlags) error {
 		for _, listenAddrStr := range proxy.localDoHListenAddresses {
 			proxy.addLocalDoHListener(listenAddrStr)
 		}
+		/* not used on ios
 		if err := proxy.addSystemDListeners(); err != nil {
 			return err
-		}
+		}*/
 	}
 	// if 'userName' is set and we are the parent process drop privilege and exit
 	if len(proxy.userName) > 0 && !proxy.child {
