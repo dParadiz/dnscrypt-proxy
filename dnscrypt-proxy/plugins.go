@@ -115,6 +115,9 @@ func (proxy *Proxy) InitPluginsGlobals() error {
 	if proxy.cache {
 		*queryPlugins = append(*queryPlugins, Plugin(new(PluginCache)))
 	}
+	if len(proxy.customEdnsOptionsFile) != 0 {
+		*queryPlugins = append(*queryPlugins, Plugin(new(PluginCustomEdnsOption)))
+	}
 	if len(proxy.forwardFile) != 0 {
 		*queryPlugins = append(*queryPlugins, Plugin(new(PluginForward)))
 	}
@@ -263,6 +266,7 @@ func (pluginsState *PluginsState) ApplyQueryPlugins(pluginsGlobals *PluginsGloba
 	if err != nil {
 		return packet, err
 	}
+	dlog.Debugf("Handling query for [%v]", qName)
 	pluginsState.qName = qName
 	pluginsState.questionMsg = &msg
 	if len(*pluginsGlobals.queryPlugins) == 0 && len(*pluginsGlobals.loggingPlugins) == 0 {

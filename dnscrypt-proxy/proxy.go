@@ -69,7 +69,9 @@ type Proxy struct {
 	blockIPLogFile                 string
 	blockIPFormat                  string
 	forwardFile                    string
+	customEdnsOptionsFile          string
 	cloakFile                      string
+	captivePortalFile              string
 	pluginsGlobals                 PluginsGlobals
 	sources                        []*Source
 	clientsCount                   uint32
