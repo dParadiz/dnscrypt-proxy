@@ -102,8 +102,8 @@ type Config struct {
 	DoHClientX509Auth        DoHClientX509AuthConfig     `toml:"doh_client_x509_auth,omitempty" json:"doh_client_x509_auth,omitempty"`
 	DoHClientX509AuthLegacy  DoHClientX509AuthConfig     `toml:"tls_client_auth,omitempty" json:"tls_client_auth,omitempty"`
 	DNS64                    DNS64Config                 `toml:"dns64,omitempty" json:"dns64,omitempty"`
-	CaptivePortalFile        string                      `toml:"captive_portal_handler"`
-	CustomENDSOptionsFile    string                      `toml:"custom_ends_options""`
+	CaptivePortalFile        string                      `toml:"captive_portal_handler,omitempty" json:"captive_portal_handler,omitempty"`
+	CustomENDSOptionsFile    string                      `toml:"custom_ends_options,omitempty" json:"custom_ends_options,omitempty"`
 }
 
 func newConfig() Config {
