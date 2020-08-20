@@ -118,6 +118,10 @@ func (proxy *Proxy) GetLogMaxBackups() int {
 	return proxy.logMaxBackups
 }
 
+func (proxy *Proxy) GetCustomEdnsOptionsFile() string {
+	return proxy.customEdnsOptionsFile
+}
+
 func (proxy *Proxy) GetAllWeeklyRanges() *map[string]WeeklyRanges {
 	return proxy.allWeeklyRanges
 }
